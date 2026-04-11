@@ -1,4 +1,4 @@
- import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import {
       getFirestore, collection, addDoc, getDocs, doc, updateDoc, deleteDoc,
       query, orderBy, serverTimestamp
@@ -98,18 +98,22 @@ apiKey: "AIzaSyBByCMlfqAZMzSOYlvEGm7Rd6aXXeByjwY",
       const start = (currentPage - 1) * PER_PAGE;
       const pagePosts = posts.slice(start, start + PER_PAGE);
 
-      list.innerHTML = pagePosts.map(p => `
+      list.innerHTML = pagePosts.map(p => {
+        const isOwner = currentUser && currentUser.uid === p.uid;
+        return `
         <div class="post-item" onclick="showDetail('${p.id}')">
           <div class="post-item-left">
             <div class="post-item-title">${escapeHtml(p.title)}</div>
             <div class="post-item-meta">${escapeHtml(p.author || "익명")} · ${formatDate(p.createdAt)}</div>
           </div>
           <div class="post-item-actions" onclick="event.stopPropagation()">
-            <button class="btn btn-sm" onclick="openEditModalById('${p.id}')">수정</button>
-            <button class="btn btn-sm btn-danger" onclick="confirmDeleteById('${p.id}')">삭제</button>
+            ${isOwner ? `
+              <button class="btn btn-sm" onclick="openEditModalById('${p.id}')">수정</button>
+              <button class="btn btn-sm btn-danger" onclick="confirmDeleteById('${p.id}')">삭제</button>
+            ` : ""}
           </div>
-        </div>
-      `).join("");
+        </div>`;
+      }).join("");
 
       renderPagination();
     }
@@ -135,6 +139,9 @@ apiKey: "AIzaSyBByCMlfqAZMzSOYlvEGm7Rd6aXXeByjwY",
         `${currentPost.author || "익명"} · ${formatDate(currentPost.createdAt)}` +
         (currentPost.userEmail ? `  [${currentPost.userEmail}]` : "");
       document.getElementById("detailBody").textContent = currentPost.body;
+      // 본인 글일 때만 수정/삭제 버튼 표시
+      const isOwner = currentUser && currentUser.uid === currentPost.uid;
+      document.querySelector(".post-detail-actions").style.display = isOwner ? "flex" : "none";
       document.getElementById("listView").style.display = "none";
       document.getElementById("detailView").style.display = "block";
     };
@@ -163,6 +170,10 @@ apiKey: "AIzaSyBByCMlfqAZMzSOYlvEGm7Rd6aXXeByjwY",
     window.openEditModalById = function(id) {
       const p = posts.find(x => x.id === id);
       if (!p) return;
+      if (!currentUser || currentUser.uid !== p.uid) {
+        showToast("본인 글만 수정할 수 있습니다.");
+        return;
+      }
       currentPost = p;
       editMode = true;
       document.getElementById("modalTitle").textContent = "// 글 수정";
@@ -226,6 +237,11 @@ apiKey: "AIzaSyBByCMlfqAZMzSOYlvEGm7Rd6aXXeByjwY",
 
     window.deletePost = async function() {
       if (!currentPost) return;
+      if (!currentUser || currentUser.uid !== currentPost.uid) {
+        showToast("본인 글만 삭제할 수 있습니다.");
+        closeConfirm();
+        return;
+      }
       try {
         await deleteDoc(doc(db, "posts", currentPost.id));
         showToast("삭제되었습니다.");

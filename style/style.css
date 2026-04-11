@@ -51,6 +51,7 @@ input:focus { outline: none; }
 h1 { color: #00ff88; width: 100%; font-weight: bold; font-size: 25px; margin-bottom: 10px; }
 
 /* ── BOARD (board.html) ── */
+.board-container { max-width: 1200px; margin: 0 auto; padding: 60px 40px; display: flex; flex-direction: column; gap: 30px; width: 100%; }
 .board-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 1px dashed #00ff88; padding-bottom: 15px; }
 .board-title { font-size: 1.8rem; text-shadow: 0 0 8px #00ff88; }
 .board-title span { color: #008844; font-size: 1rem; margin-left: 10px; }
