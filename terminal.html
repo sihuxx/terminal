@@ -1,39 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>박시후 자기소개 페이지</title>
-    <link rel="stylesheet" href="./style/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>터미널 | Sihoo.dev</title>
+  <link rel="stylesheet" href="./style/style.css">
 </head>
-
 <body>
-    <header class="header">
-        <div class="header-container">
-          <div class="logo">Sihoo.dev</div>
-          <nav class="nav-links">
-            <a href="./board.html">게시판</a>
-            <a href="./index.html">자기소개</a>
-            <a href="./terminal.html" class="active">터미널</a>
-            <a href="./study.html">공부 게시판</a>
-          </nav>
-          <div class="header-user" id="headerUser">
-            <a href="./login.html" class="login-link">로그인</a>
-          </div>
-        </div>
-      </header>
-    <div class="container">
-        <h1>Sihoo's Introduction</h1>
-        <div class="terminal">
-            <div class="output"></div>
-            <div class="input-line">
-                <span>></span>
-                <input type="text" class="commandInput">
-            </div>
-        </div>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">Sihoo<span>.dev</span></div>
+      <nav class="nav-links">
+        <a href="./board.html">게시판</a>
+        <a href="./index.html">자기소개</a>
+        <a href="./terminal.html" class="active">터미널</a>
+        <a href="./study.html">공부 게시판</a>
+      </nav>
+      <div class="header-user" id="headerUser">
+        <a href="./login.html" class="login-link">로그인</a>
+      </div>
     </div>
-</body>
-<script src="./script/script.js"></script>
+  </header>
 
+  <div class="terminal-page">
+    <h1>Interactive Terminal</h1>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="terminal-dot red"></div>
+        <div class="terminal-dot yellow"></div>
+        <div class="terminal-dot green"></div>
+        <div class="terminal-title">sihoo@portfolio ~ bash</div>
+      </div>
+      <div class="terminal-body">
+        <div class="output"></div>
+        <div class="input-line">
+          <span>❯</span>
+          <input type="text" class="cmd-input commandInput" placeholder="명령어를 입력하세요...">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2026 Sihoo Park. All rights reserved.</p>
+  </footer>
+
+  <script type="module" src="./script/nav.js"></script>
+  <script src="./script/script.js"></script>
+</body>
 </html>

@@ -1,204 +1,236 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>박시후 | 프론트엔드 개발자</title>
-    <link rel="stylesheet" href="./style/style.css">
-    <style>
-        /* GitHub Stats 섹션 */
-        .github-stats { display: flex; flex-direction: column; gap: 20px; width: 100%; }
-        .github-stats-row { display: flex; gap: 20px; flex-wrap: wrap; }
-        .github-card {
-            border: 1px solid #00ff88;
-            padding: 4px;
-            box-shadow: inset 0 0 10px rgba(0,255,136,0.1);
-            transition: all 0.3s;
-            overflow: hidden;
-            background: transparent;
-        }
-        .github-card:hover {
-            box-shadow: 0 0 15px rgba(0,255,136,0.3), inset 0 0 15px rgba(0,255,136,0.2);
-        }
-        .github-card img {
-            display: block;
-            width: 100%;
-            height: auto;
-            filter: hue-rotate(0deg);
-        }
-        .github-card-wide { width: 100%; }
-        .github-card-half { flex: 1; min-width: 280px; }
-
-        /* 로딩 shimmer */
-        .github-card.loading {
-            background: repeating-linear-gradient(
-                90deg,
-                rgba(0,255,136,0.03) 0px,
-                rgba(0,255,136,0.07) 40px,
-                rgba(0,255,136,0.03) 80px
-            );
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            min-height: 120px;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>박시후 | 프론트엔드 개발자</title>
+  <link rel="stylesheet" href="./style/style.css">
 </head>
-
 <body>
-    <header class="header">
-        <div class="header-container">
-          <div class="logo">Sihoo.dev</div>
-          <nav class="nav-links">
-            <a href="./board.html">게시판</a>
-            <a href="./index.html" class="active">자기소개</a>
-            <a href="./terminal.html">터미널</a>
-            <a href="./study.html" >공부 게시판</a>
-          </nav>
-          <div class="header-user" id="headerUser">
-            <a href="./login.html" class="login-link ">로그인</a>
+
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">Sihoo<span>.dev</span></div>
+      <nav class="nav-links">
+        <a href="./board.html">게시판</a>
+        <a href="./index.html" class="active">자기소개</a>
+        <a href="./terminal.html">터미널</a>
+        <a href="./study.html">공부 게시판</a>
+      </nav>
+      <div class="header-user" id="headerUser">
+        <a href="./login.html" class="login-link">로그인</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-eyebrow">프론트엔드 개발자</div>
+      <h1>Ideas to<br><em>Reality</em></h1>
+      <p class="hero-desc">
+        안녕하세요! 사용자 친화적인 UI/UX를 고민하며,<br>
+        마우스 없이도 매력적인 경험을 주는<br>
+        프론트엔드 개발자 <strong>박시후</strong>입니다.
+      </p>
+      <div class="hero-actions">
+        <a href="mailto:sihu714@gmail.com" class="btn">✉️ 연락하기</a>
+        <a href="https://github.com/sihuxx" target="_blank" class="btn btn-outline">💻 GitHub</a>
+      </div>
+
+      <!-- Decorative floating elements -->
+      <div class="hero-deco">
+        <div class="hero-blob hero-blob-1"></div>
+        <div class="hero-blob hero-blob-2"></div>
+
+        <div class="hero-card hero-card-1">
+          <div class="hero-card-label">현재 상태</div>
+          <div class="hero-card-val">🟢 개발 중</div>
+        </div>
+
+        <div class="hero-card hero-card-2">
+          <div class="hero-card-label">수상</div>
+          <div class="hero-card-val">🏆 3개 수상</div>
+        </div>
+
+        <div class="hero-card hero-card-3">
+          <div class="hero-card-label">주력 스택</div>
+          <div class="hero-card-val">React · JS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS & AWARDS -->
+    <section class="section reveal">
+      <div class="section-header">
+        <span class="section-tag">Projects</span>
+        <h2 class="section-title">Projects & Awards</h2>
+      </div>
+      <div class="project-grid">
+        <div class="card" style="animation-delay:0.05s">
+          <h3>🖥️ Personal Hub (Terminal)</h3>
+          <p>실제 터미널(CLI) 환경과 동일한 사용자 경험을 제공하는 인터랙티브 웹 포트폴리오입니다.</p>
+          <div class="tags">
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>Vanilla JS</span>
           </div>
         </div>
-      </header>
+        <div class="card" style="animation-delay:0.10s">
+          <h3>🏆 2025 해커톤 동상</h3>
+          <p>팀 프로젝트로 참여하여 기획 및 프론트엔드 개발을 담당하였고, 우수한 성과로 동상을 수상했습니다.</p>
+          <div class="tags">
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </div>
+        <div class="card" style="animation-delay:0.15s">
+          <h3>🏆 2025 웹&앱 경진대회 장려상</h3>
+          <p>React.js를 활용하여 동적인 UI/UX를 갖춘 웹 애플리케이션을 개발해 장려상을 수상했습니다.</p>
+          <div class="tags">
+            <span>React.js</span>
+          </div>
+        </div>
+        <div class="card" style="animation-delay:0.20s">
+          <h3>🏆 2025 포트폴리오 경진대회 장려상</h3>
+          <p>개발자로서의 역량과 개성을 담은 포트폴리오를 기획 및 구현하여 장려상을 수상했습니다.</p>
+          <div class="tags">
+            <span>Portfolio</span>
+            <span>UI/UX</span>
+          </div>
+        </div>
+        <div class="card" style="animation-delay:0.25s">
+          <h3>🚀 현대 제로원(ZER01NE) 참여</h3>
+          <p>현대자동차그룹의 오픈이노베이션 플랫폼 제로원 프로그램에 참여하여 창의적인 활동과 협업을 경험했습니다.</p>
+          <div class="tags">
+            <span>Activity</span>
+            <span>Project</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <main class="container">
-        <section class="section intro">
-            <h1 class="slogan">Ideas to Reality</h1>
-            <p class="description">
-                안녕하세요! 사용자 친화적인 UI/UX를 고민하며,<br>
-                마우스 없이도 매력적인 경험을 주는 프론트엔드 개발자 <strong>박시후</strong>입니다.
-            </p>
-        </section>
+    <!-- CERTIFICATIONS -->
+    <section class="section reveal">
+      <div class="section-header">
+        <span class="section-tag">Credentials</span>
+        <h2 class="section-title">Certifications</h2>
+      </div>
+      <div class="cert-list">
+        <div class="cert-item">🏅 웹디자인기능사</div>
+        <div class="cert-item">🏅 ITQ 엑셀</div>
+        <div class="cert-item">🏅 ITQ 한글</div>
+      </div>
+    </section>
 
-        <section class="section">
-            <h2 class="section-title">Projects & Awards</h2>
-            <div class="project-grid">
-                <div class="card">
-                    <h3>Personal Hub (Terminal)</h3>
-                    <p>실제 터미널(CLI) 환경과 동일한 사용자 경험을 제공하는 인터랙티브 웹 포트폴리오입니다.</p>
-                    <div class="tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>Vanilla JS</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>🏆 2025 해커톤 동상</h3>
-                    <p>팀 프로젝트로 참여하여 기획 및 프론트엔드 개발을 담당하였고, 우수한 성과로 동상을 수상했습니다.</p>
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                        <span>JavaScript</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>🏆 2025 웹&앱 경진대회 장려상</h3>
-                    <p>React.js를 활용하여 동적인 UI/UX를 갖춘 웹 애플리케이션을 개발해 장려상을 수상했습니다.</p>
-                    <div class="tags">
-                        <span>React.js</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>🏆 2025 포트폴리오 경진대회 장려상</h3>
-                    <p>개발자로서의 역량과 개성을 담은 포트폴리오를 기획 및 구현하여 장려상을 수상했습니다.</p>
-                    <div class="tags">
-                        <span>Portfolio</span>
-                        <span>UI/UX</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <h3>🚀 현대 제로원(ZER01NE) 참여</h3>
-                    <p>현대자동차그룹의 오픈이노베이션 플랫폼 제로원 프로그램에 참여하여 창의적인 활동과 협업을 경험했습니다.</p>
-                    <div class="tags">
-                        <span>Activity</span>
-                        <span>Project</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- TECH STACK -->
+    <section class="section reveal">
+      <div class="section-header">
+        <span class="section-tag">Skills</span>
+        <h2 class="section-title">Tech Stack</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <div class="tags">
+            <span>HTML/CSS</span>
+            <span>JavaScript</span>
+            <span>React</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Backend & Tools</h3>
+          <div class="tags">
+            <span>Node.js</span>
+            <span>PHP</span>
+            <span>MySQL</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>DevOps</h3>
+          <div class="tags">
+            <span>Git</span>
+            <span>GitHub</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="section">
-            <h2 class="section-title">Certifications</h2>
-            <div class="skills-container">
-                <div class="tags" style="gap: 15px;">
-                    <span style="padding: 10px 20px; font-size: 1rem;">🏅 웹디자인기능사</span>
-                    <span style="padding: 10px 20px; font-size: 1rem;">🏅 ITQ 엑셀</span>
-                    <span style="padding: 10px 20px; font-size: 1rem;">🏅 ITQ 한글</span>
-                </div>
-            </div>
-        </section>
+    <!-- GITHUB ACTIVITY -->
+    <section class="section reveal">
+      <div class="section-header">
+        <span class="section-tag">Activity</span>
+        <h2 class="section-title">GitHub Activity</h2>
+      </div>
+      <div class="github-stats">
+        <div class="github-card loading" id="grassCard">
+          <img
+            src="https://ghchart.rshah.org/5EAA58/sihuxx"
+            alt="GitHub 잔디"
+            onload="this.parentElement.classList.remove('loading')"
+            onerror="this.parentElement.innerHTML='<div style=\'padding:20px;color:#9A9E94;font-size:0.85rem;text-align:center\'>잔디를 불러오지 못했습니다.</div>'"
+          >
+        </div>
+        <div class="skill-card">
+          <h3>Tech Badges</h3>
+          <div class="tags" style="gap:8px">
+            <img src="https://img.shields.io/badge/PHP-5EAA58?style=flat-square&logo=php&logoColor=white" alt="PHP">
+            <img src="https://img.shields.io/badge/React-5EAA58?style=flat-square&logo=react&logoColor=white" alt="React">
+            <img src="https://img.shields.io/badge/HTML5-5EAA58?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+            <img src="https://img.shields.io/badge/CSS3-5EAA58?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+            <img src="https://img.shields.io/badge/JavaScript-5EAA58?style=flat-square&logo=javascript&logoColor=white" alt="JavaScript">
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section class="section">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <div class="tags">
-                        <span>HTML/CSS</span>
-                        <span>JavaScript</span>
-                        <span>React</span>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend & Tools</h3>
-                    <div class="tags">
-                        <span>Node.js</span>
-                        <span>Git</span>
-                        <span>GitHub</span>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- CONTACT -->
+    <section class="section reveal">
+      <div class="section-header">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Let's Talk</h2>
+      </div>
+      <div class="contact-grid">
+        <a href="mailto:sihu714@gmail.com" class="contact-btn">✉️ Gmail</a>
+        <a href="https://github.com/sihuxx" target="_blank" class="contact-btn">💻 GitHub</a>
+      </div>
+    </section>
 
-        <!-- ── GitHub Stats 섹션 ── -->
-        <section class="section">
-            <h2 class="section-title">GitHub Activity</h2>
-            <div class="github-stats">
+  </main>
 
-                <!-- 잔디 (Contribution Graph) -->
-                <div class="github-card github-card-wide loading" id="grassCard">
-                    <img
-                        src="https://ghchart.rshah.org/00ff88/sihuxx"
-                        alt="GitHub 잔디"
-                        onload="this.parentElement.classList.remove('loading')"
-                        onerror="this.parentElement.innerHTML='<div style=\'padding:20px;color:#006633;font-size:0.85rem\'>잔디를 불러오지 못했습니다.</div>'"
-                    >
-                </div>
+  <footer class="footer">
+    <p>© 2026 Sihoo Park. All rights reserved.</p>
+  </footer>
 
-                <!-- Stats 카드 두 개 나란히 -->
-                <div class="github-stats-row">
-                    <div class="skill-category">
-                        <h3>Tech</h3>
-                        <div class="tags">
-                            <img src="https://img.shields.io/badge/PHP-00ff88?style=for-the-badge&logo=php&logoColor=000000" alt="PHP">
-                            <img src="https://img.shields.io/badge/React-00ff88?style=for-the-badge&logo=react&logoColor=000000" alt="React">
-                            <img src="https://img.shields.io/badge/HTML5-00ff88?style=for-the-badge&logo=html5&logoColor=000000" alt="HTML5">
-                            <img src="https://img.shields.io/badge/CSS3-00ff88?style=for-the-badge&logo=css3&logoColor=000000" alt="CSS3">
-                            <img src="https://img.shields.io/badge/JavaScript-00ff88?style=for-the-badge&logo=javascript&logoColor=000000" alt="JavaScript">
-                        </div>
-                    </div>
-                </div>
+  <script type="module" src="./script/nav.js"></script>
+  <script>
+    // Scroll reveal animation
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-            </div>
-        </section>
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        <section class="section contact">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-links">
-                <a href="mailto:sihu714@gmail.com" class="contact-btn">✉️ Gmail</a>
-                <a href="https://github.com/sihuxx" target="_blank" class="contact-btn">💻 GitHub</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <p>© 2026 Sihoo Park. All rights reserved.</p>
-    </footer>
+    // Typing animation for hero
+    const typed = document.querySelector('.hero h1 em');
+    if (typed) {
+      const text = typed.textContent;
+      typed.textContent = '';
+      let i = 0;
+      setTimeout(() => {
+        const interval = setInterval(() => {
+          typed.textContent += text[i];
+          i++;
+          if (i >= text.length) clearInterval(interval);
+        }, 80);
+      }, 800);
+    }
+  </script>
 </body>
-<script type="module" src="./script/nav.js"></script>
-
 </html>

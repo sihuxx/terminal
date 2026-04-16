@@ -9,14 +9,13 @@
 <body>
   <header class="header">
     <div class="header-container">
-      <div class="logo">Sihoo.dev</div>
+      <div class="logo">Sihoo<span>.dev</span></div>
       <nav class="nav-links">
         <a href="./board.html" class="active">게시판</a>
         <a href="./index.html">자기소개</a>
         <a href="./terminal.html">터미널</a>
         <a href="./study.html">공부 게시판</a>
       </nav>
-      <!-- 로그인 상태 표시 영역 -->
       <div class="header-user" id="headerUser">
         <a href="./login.html" class="login-link">로그인</a>
       </div>
@@ -28,7 +27,10 @@
     <!-- LIST VIEW -->
     <div id="listView">
       <div class="board-header">
-        <div class="board-title">게시판 <span id="postCount">// 0 posts</span></div>
+        <div class="board-title">
+          게시판
+          <span class="post-count" id="postCount">0 posts</span>
+        </div>
         <button class="btn" onclick="openWriteModal()">+ 글쓰기</button>
       </div>
       <div class="post-list" id="postList">
@@ -56,17 +58,16 @@
   <footer class="footer">
     <p>© 2026 Sihoo Park. All rights reserved.</p>
   </footer>
-  
 
   <!-- WRITE / EDIT MODAL -->
   <div class="modal-overlay" id="writeModal">
     <div class="modal">
-      <div class="modal-title" id="modalTitle">// 새 글 작성</div>
+      <div class="modal-title" id="modalTitle">새 글 작성</div>
       <input type="text" id="postTitleInput" placeholder="제목을 입력하세요..." maxlength="100">
       <input type="text" id="postAuthorInput" placeholder="작성자 (선택)" maxlength="30">
       <textarea id="postBodyInput" placeholder="내용을 입력하세요..."></textarea>
       <div class="modal-actions">
-        <button class="btn" onclick="closeModal()">취소</button>
+        <button class="btn btn-outline" onclick="closeModal()">취소</button>
         <button class="btn" id="submitBtn" onclick="submitPost()">작성</button>
       </div>
     </div>
@@ -77,14 +78,14 @@
     <div class="confirm-box">
       <p>정말 삭제하시겠습니까?</p>
       <div class="confirm-actions">
-        <button class="btn" onclick="closeConfirm()">취소</button>
+        <button class="btn btn-outline" onclick="closeConfirm()">취소</button>
         <button class="btn btn-danger" onclick="deletePost()">삭제</button>
       </div>
     </div>
   </div>
 
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
- <script type="module" src="./script/board.js"></script>
+
+  <script type="module" src="./script/board.js"></script>
 </body>
 </html>

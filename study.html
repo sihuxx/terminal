@@ -6,57 +6,13 @@
   <title>공부 게시판 | Sihoo.dev</title>
   <link rel="stylesheet" href="./style/style.css">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/green-screen.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-  <style>
-    .modal-wide { max-width: 900px; width: 95vw; max-height: 90vh; overflow-y: auto; }
-    .md-editor-wrap { display: flex; flex-direction: column; gap: 0; }
-    .md-toolbar { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px; border: 1px solid #003322; border-bottom: none; background: rgba(0,255,136,0.03); }
-    .md-toolbar button { background: transparent; border: 1px solid #003322; color: #008844; padding: 3px 8px; cursor: pointer; font-family: 'D2Coding', monospace; font-size: 0.8rem; transition: all 0.15s; }
-    .md-toolbar button:hover { border-color: #00ff88; color: #00ff88; }
-    .md-toolbar .sep { width: 1px; background: #003322; margin: 0 4px; align-self: stretch; }
-    .md-tabs { display: flex; border: 1px solid #003322; border-bottom: none; }
-    .md-tab { padding: 6px 16px; cursor: pointer; color: #008844; font-size: 0.85rem; background: transparent; border: none; border-bottom: 2px solid transparent; font-family: 'D2Coding', monospace; transition: all 0.2s; }
-    .md-tab.active { color: #00ff88; border-bottom-color: #00ff88; }
-    #postBodyInput { min-height: 280px; border-top: none; font-size: 0.9rem; line-height: 1.8; }
-    .md-preview { display: none; min-height: 280px; border: 1px solid #00ff88; padding: 16px; color: #00cc66; line-height: 1.8; overflow-y: auto; }
-    .md-preview.active { display: block; }
-    .md-preview h1,.md-preview h2,.md-preview h3,.post-detail-body h1,.post-detail-body h2,.post-detail-body h3 { color: #00ff88; text-shadow: 0 0 5px #00ff88; margin: 16px 0 8px; border-bottom: 1px dashed #003322; padding-bottom: 4px; }
-    .md-preview p,.post-detail-body p { margin-bottom: 12px; }
-    .md-preview code,.post-detail-body code { background: rgba(0,255,136,0.08); padding: 2px 6px; color: #00ff88; font-family: 'D2Coding', monospace; font-size: 0.9em; }
-    .md-preview pre,.post-detail-body pre { background: #0a0a0a; border: 1px solid #003322; padding: 16px; overflow-x: auto; margin-bottom: 12px; }
-    .md-preview pre code,.post-detail-body pre code { background: none; padding: 0; }
-    .md-preview blockquote,.post-detail-body blockquote { border-left: 3px solid #00ff88; padding-left: 12px; color: #008844; margin: 12px 0; }
-    .md-preview ul,.md-preview ol,.post-detail-body ul,.post-detail-body ol { padding-left: 20px; margin-bottom: 12px; }
-    .md-preview li,.post-detail-body li { margin-bottom: 4px; }
-    .md-preview a,.post-detail-body a { color: #00ff88; text-decoration: underline; }
-    .md-preview img,.post-detail-body img { max-width: 100%; border: 1px solid #003322; margin: 8px 0; }
-    .post-detail-body img { cursor: pointer; transition: all 0.2s; }
-    .post-detail-body img:hover { box-shadow: 0 0 10px rgba(0,255,136,0.3); }
-    .md-preview table,.post-detail-body table { width: 100%; border-collapse: collapse; margin-bottom: 12px; }
-    .md-preview th,.md-preview td,.post-detail-body th,.post-detail-body td { border: 1px solid #003322; padding: 6px 10px; }
-    .md-preview th,.post-detail-body th { background: rgba(0,255,136,0.05); color: #00ff88; }
-    .md-preview hr,.post-detail-body hr { border: none; border-top: 1px dashed #003322; margin: 16px 0; }
-    .img-upload-area { border: 1px dashed #00ff88; padding: 16px; text-align: center; cursor: pointer; color: #008844; font-size: 0.85rem; transition: all 0.2s; position: relative; margin-top: 4px; }
-    .img-upload-area:hover { background: rgba(0,255,136,0.04); color: #00ff88; }
-    .img-upload-area input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%; }
-    .img-upload-area.dragover { background: rgba(0,255,136,0.08); border-style: solid; }
-    .upload-progress { color: #008844; font-size: 0.8rem; margin-top: 4px; min-height: 18px; }
-    .img-preview-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-    .img-preview-item { position: relative; }
-    .img-preview-item img { width: 80px; height: 80px; object-fit: cover; border: 1px solid #003322; display: block; }
-    .remove-img { position: absolute; top: -6px; right: -6px; background: #ff4444; color: #000; border: none; width: 18px; height: 18px; font-size: 0.7rem; cursor: pointer; display: flex; align-items: center; justify-content: center; line-height: 1; }
-    .lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); z-index: 500; align-items: center; justify-content: center; }
-    .lightbox.active { display: flex; }
-    .lightbox img { max-width: 90vw; max-height: 90vh; border: 1px solid #00ff88; }
-    .lightbox-close { position: absolute; top: 20px; right: 30px; color: #00ff88; font-size: 2rem; cursor: pointer; }
-    .post-thumb { width: 48px; height: 48px; object-fit: cover; border: 1px solid #003322; flex-shrink: 0; }
-  </style>
 </head>
 <body>
   <header class="header">
     <div class="header-container">
-      <div class="logo">Sihoo.dev</div>
+      <div class="logo">Sihoo<span>.dev</span></div>
       <nav class="nav-links">
         <a href="./board.html">게시판</a>
         <a href="./index.html">자기소개</a>
@@ -76,14 +32,16 @@
       <div class="board-header">
         <div class="board-title">
           공부 게시판
-          <span id="postCount">// 0 posts</span>
-          <span id="adminBadge" style="display:none; margin-left:10px; font-size:0.8rem; border:1px solid #00ff88; padding:2px 8px;">✦ 관리자</span>
+          <span class="post-count" id="postCount">0 posts</span>
+          <span id="adminBadge" class="admin-badge" style="display:none;">✦ 관리자</span>
         </div>
         <button class="btn" id="writeBtn" style="display:none;" onclick="openWriteModal()">+ 글쓰기</button>
       </div>
-      <div id="readonlyNotice" style="display:none; margin-bottom:20px; padding:12px 16px; border:1px dashed #003322; color:#006633; font-size:0.85rem;">
-        > 이 게시판은 열람만 가능합니다. 글쓰기는 관리자만 허용됩니다.
+
+      <div id="readonlyNotice" class="readonly-notice" style="display:none;">
+        이 게시판은 열람만 가능합니다. 글쓰기는 관리자만 허용됩니다.
       </div>
+
       <div class="post-list" id="postList">
         <div class="state-msg"><span class="loading-dots">불러오는 중</span></div>
       </div>
@@ -113,42 +71,42 @@
   <!-- WRITE / EDIT MODAL -->
   <div class="modal-overlay" id="writeModal">
     <div class="modal modal-wide">
-      <div class="modal-title" id="modalTitle">// 새 글 작성</div>
+      <div class="modal-title" id="modalTitle">새 글 작성</div>
       <input type="text" id="postTitleInput" placeholder="제목을 입력하세요..." maxlength="100">
       <input type="text" id="postTagInput" placeholder="태그 (예: JavaScript, React) — 쉼표로 구분" maxlength="80">
 
       <!-- 마크다운 에디터 -->
       <div class="md-editor-wrap">
         <div class="md-toolbar">
-          <button onclick="mdWrap('**','**')">B</button>
-          <button onclick="mdWrap('*','*')"><i>I</i></button>
-          <button onclick="mdWrap('~~','~~')">S</button>
+          <button onclick="mdWrap('**','**')"><strong>B</strong></button>
+          <button onclick="mdWrap('*','*')"><em>I</em></button>
+          <button onclick="mdWrap('~~','~~')"><s>S</s></button>
           <div class="sep"></div>
           <button onclick="mdInsert('# ')">H1</button>
           <button onclick="mdInsert('## ')">H2</button>
           <button onclick="mdInsert('### ')">H3</button>
           <div class="sep"></div>
-          <button onclick="mdInsert('- ')">— 목록</button>
-          <button onclick="mdInsert('1. ')">1. 목록</button>
+          <button onclick="mdInsert('- ')">목록</button>
+          <button onclick="mdInsert('1. ')">번호</button>
           <button onclick="mdInsert('> ')">인용</button>
           <div class="sep"></div>
           <button onclick="mdWrap('\`','\`')">code</button>
-          <button onclick="mdInsert('\`\`\`\n\n\`\`\`')">``` 블록</button>
+          <button onclick="mdInsert('\`\`\`\n\n\`\`\`')">블록</button>
           <button onclick="mdInsert('---')">—</button>
           <div class="sep"></div>
-          <button onclick="mdInsert('[링크텍스트](url)')">🔗</button>
+          <button onclick="mdInsert('[텍스트](url)')">🔗</button>
         </div>
         <div class="md-tabs">
           <button class="md-tab active" onclick="switchMdTab('write')">✍️ 작성</button>
           <button class="md-tab" onclick="switchMdTab('preview')">👁 미리보기</button>
         </div>
-        <textarea id="postBodyInput" placeholder="마크다운으로 작성하세요...&#10;&#10;# 제목&#10;**굵게**, *기울게*, \`코드\`&#10;\`\`\`js&#10;console.log('hello')&#10;\`\`\`"></textarea>
+        <textarea id="postBodyInput" placeholder="마크다운으로 작성하세요...&#10;&#10;# 제목&#10;**굵게**, *기울게*, `코드`&#10;&#10;```js&#10;console.log('hello')&#10;```"></textarea>
         <div class="md-preview" id="mdPreview"></div>
       </div>
 
       <!-- 이미지 업로드 -->
       <div>
-        <div style="font-size:0.85rem; color:#008844; margin-bottom:6px;">> 이미지 업로드 (드래그 또는 클릭)</div>
+        <div style="font-size:0.83rem; color:var(--warm-gray); margin-bottom:6px;">이미지 업로드 (드래그 또는 클릭)</div>
         <div class="img-upload-area" id="uploadArea">
           <input type="file" id="imgFileInput" accept="image/*" multiple onchange="handleFileSelect(this.files)">
           📎 클릭하거나 이미지를 드래그해서 올리세요 (최대 5MB)
@@ -158,7 +116,7 @@
       </div>
 
       <div class="modal-actions">
-        <button class="btn" onclick="closeModal()">취소</button>
+        <button class="btn btn-outline" onclick="closeModal()">취소</button>
         <button class="btn" id="submitBtn" onclick="submitPost()">작성</button>
       </div>
     </div>
@@ -169,7 +127,7 @@
     <div class="confirm-box">
       <p>정말 삭제하시겠습니까?</p>
       <div class="confirm-actions">
-        <button class="btn" onclick="closeConfirm()">취소</button>
+        <button class="btn btn-outline" onclick="closeConfirm()">취소</button>
         <button class="btn btn-danger" onclick="deletePost()">삭제</button>
       </div>
     </div>

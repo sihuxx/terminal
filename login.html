@@ -9,12 +9,12 @@
 <body>
   <header class="header">
     <div class="header-container">
-      <div class="logo">Sihoo.dev</div>
+      <div class="logo">Sihoo<span>.dev</span></div>
       <nav class="nav-links">
         <a href="./board.html">게시판</a>
         <a href="./index.html">자기소개</a>
         <a href="./terminal.html">터미널</a>
-        <a href="./study.html" >공부 게시판</a>
+        <a href="./study.html">공부 게시판</a>
       </nav>
       <div class="header-user" id="headerUser">
         <a href="./login.html" class="login-link active">로그인</a>
@@ -24,7 +24,7 @@
 
   <div class="auth-container">
     <div class="auth-box">
-      <div class="auth-title">// 계정 접속</div>
+      <div class="auth-title">계정 접속</div>
       <div class="auth-subtitle">Sihoo.dev에 로그인하거나 회원가입하세요.</div>
 
       <div class="auth-tabs">
@@ -35,11 +35,11 @@
       <!-- 로그인 폼 -->
       <div class="auth-form" id="loginForm">
         <div class="form-group">
-          <label class="form-label">> 이메일</label>
+          <label class="form-label">이메일</label>
           <input class="form-input" type="email" id="loginEmail" placeholder="example@email.com">
         </div>
         <div class="form-group">
-          <label class="form-label">> 비밀번호</label>
+          <label class="form-label">비밀번호</label>
           <input class="form-input" type="password" id="loginPassword" placeholder="비밀번호 입력">
         </div>
         <div class="auth-error" id="loginError"></div>
@@ -49,15 +49,15 @@
       <!-- 회원가입 폼 -->
       <div class="auth-form hidden" id="signupForm">
         <div class="form-group">
-          <label class="form-label">> 이메일</label>
+          <label class="form-label">이메일</label>
           <input class="form-input" type="email" id="signupEmail" placeholder="example@email.com">
         </div>
         <div class="form-group">
-          <label class="form-label">> 비밀번호 (6자 이상)</label>
+          <label class="form-label">비밀번호 (6자 이상)</label>
           <input class="form-input" type="password" id="signupPassword" placeholder="비밀번호 입력">
         </div>
         <div class="form-group">
-          <label class="form-label">> 비밀번호 확인</label>
+          <label class="form-label">비밀번호 확인</label>
           <input class="form-input" type="password" id="signupPasswordConfirm" placeholder="비밀번호 재입력">
         </div>
         <div class="auth-error" id="signupError"></div>
@@ -71,8 +71,6 @@
     <p>© 2026 Sihoo Park. All rights reserved.</p>
   </footer>
 
-  <script type="module" src="./script/auth.js">
-    
-  </script>
+  <script type="module" src="./script/auth.js"></script>
 </body>
 </html>

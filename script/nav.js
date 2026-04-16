@@ -24,8 +24,8 @@ const updateHeader = (user) => {
     if (user) {
         // 로그인 상태: 이메일과 로그아웃 버튼 표시
         headerUser.innerHTML = `
-            <span class="user-email" style="color: #00ff88; margin-right: 10px; font-size: 0.8rem;">${user.email}</span>
-            <button id="logoutBtn" class="login-btn" style="background:none; border:none; cursor:pointer; color:#fff;">로그아웃</button>
+            <span class="user-email" style="margin-right: 10px; font-size: 0.8rem;">${user.email}</span>
+            <button id="logoutBtn" class="logout-btn" >로그아웃</button>
         `;
         document.getElementById("logoutBtn").addEventListener("click", () => {
             signOut(auth).then(() => {
